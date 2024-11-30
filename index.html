@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Input Page</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        .input-bar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input {
+            padding: 10px;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="input-bar">
+        <input id="codeInput" type="text" placeholder="Enter code">
+        <button onclick="checkCode()">Submit</button>
+    </div>
+    <script>
+        // Static mapping of codes to files
+        const codeMap = {
+            "5555A": "admin.html",
+            "12345": "userPage.html",
+            "ABCDE": "specialPage.html"
+        };
+
+        function checkCode() {
+            const inputCode = document.getElementById("codeInput").value.toUpperCase();
+
+            if (codeMap[inputCode]) {
+                // Redirect to the corresponding page
+                window.location.href = codeMap[inputCode];
+            } else {
+                alert("Invalid code. Try again.");
+            }
+        }
+    </script>
+</body>
+</html>
